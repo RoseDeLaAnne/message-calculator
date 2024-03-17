@@ -91,7 +91,7 @@ export function CalculatorForm() {
         newValue += ` - ${
           // @ts-ignore
           (parseInt(values.quest_cost) +
-          // @ts-ignore
+            // @ts-ignore
             parseInt(values.additional_players_450) * 450) *
           // @ts-ignore
           0.1
@@ -100,15 +100,15 @@ export function CalculatorForm() {
       // @ts-ignore
       if (values.additional_players_500) {
         sum -=
-        // @ts-ignore
-          (parseInt(values.quest_cost) +
           // @ts-ignore
+          (parseInt(values.quest_cost) +
+            // @ts-ignore
             parseInt(values.additional_players_500) * 500) *
           0.1;
         newValue += ` - ${
           // @ts-ignore
           (parseInt(values.quest_cost) +
-          // @ts-ignore
+            // @ts-ignore
             parseInt(values.additional_players_500) * 500) *
           0.1
         }₽ (скидка 10%)`;
@@ -165,10 +165,12 @@ export function CalculatorForm() {
       sum - 500
     }₽ - оплата на месте`;
 
-    setValue(newValue);
+    setValue(newValue.replace(/<br\s*\/?>/g, "\n"));
 
     console.log(newValue);
   }
+
+  // setValue(value.replace(/<br\s*\/?>/g, '\n'));
 
   const submitOnClick = () => {
     navigator.clipboard.writeText(value);
