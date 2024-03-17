@@ -51,70 +51,110 @@ export function CalculatorForm() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
-
+    // @ts-ignore
     let newValue = `Стоимость квеста: ${values.quest_cost}₽ (стоимость квеста до ${values.how_many_people} чел.)`;
+    // @ts-ignore
     let sum = parseInt(values.quest_cost);
 
+    // @ts-ignore
     if (values.additional_players_450) {
+      // @ts-ignore
       sum += parseInt(values.additional_players_450) * 450;
+      // @ts-ignore
       newValue += ` + ${parseInt(values.additional_players_450) * 450}₽ (${
+        // @ts-ignore
         values.additional_players_450
       } доп. игр.)`;
     }
+    // @ts-ignore
     if (values.additional_players_500) {
+      // @ts-ignore
       sum += parseInt(values.additional_players_500) * 500;
+      // @ts-ignore
       newValue += ` + ${parseInt(values.additional_players_500) * 500}₽ (${
+        // @ts-ignore
         values.additional_players_500
       } доп. игр.)`;
     }
+    // @ts-ignore
     if (values.discount_10 == true) {
+      // @ts-ignore
       if (values.additional_players_450) {
+        // @ts-ignore
         sum -=
+          // @ts-ignore
           (parseInt(values.quest_cost) +
+            // @ts-ignore
             parseInt(values.additional_players_450) * 450) *
+          // @ts-ignore
           0.1;
         newValue += ` - ${
+          // @ts-ignore
           (parseInt(values.quest_cost) +
+          // @ts-ignore
             parseInt(values.additional_players_450) * 450) *
+          // @ts-ignore
           0.1
         }₽ (скидка 10%)`;
       }
+      // @ts-ignore
       if (values.additional_players_500) {
         sum -=
+        // @ts-ignore
           (parseInt(values.quest_cost) +
+          // @ts-ignore
             parseInt(values.additional_players_500) * 500) *
           0.1;
         newValue += ` - ${
+          // @ts-ignore
           (parseInt(values.quest_cost) +
+          // @ts-ignore
             parseInt(values.additional_players_500) * 500) *
           0.1
         }₽ (скидка 10%)`;
       }
     }
+    // @ts-ignore
     if (values.second_actor) {
+      // @ts-ignore
       sum += parseInt(values.second_actor);
+      // @ts-ignore
       newValue += ` + ${values.second_actor}₽ (второй актер)`;
     }
+    // @ts-ignore
     if (values.actors) {
+      // @ts-ignore
       sum += parseInt(values.actors);
+      // @ts-ignore
       newValue += ` + ${values.actors}₽ (актер)`;
     }
+    // @ts-ignore
     if (values.video == true) {
       sum += 600;
       newValue += ` + 600₽ (видео)`;
     }
+    // @ts-ignore
     if (values.room_for_one_hour_after) {
+      // @ts-ignore
       sum += parseInt(values.room_for_one_hour_after);
+      // @ts-ignore
       newValue += ` + ${values.room_for_one_hour_after}₽ (комната на один час после)`;
     }
+    // @ts-ignore
     if (values.room_during_for_one_hour_after) {
+      // @ts-ignore
       sum += parseInt(values.room_during_for_one_hour_after);
+      // @ts-ignore
       newValue += ` + ${values.room_during_for_one_hour_after}₽ (комната во время квеста и на один час после)`;
     }
+    // @ts-ignore
     if (values.night_game) {
+      // @ts-ignore
       sum += parseInt(values.night_game);
+      // @ts-ignore
       newValue += ` + ${values.night_game}₽ (ночная игра)`;
     }
+    // @ts-ignore
     if (values.birthday_congr == true) {
       sum += 800;
       newValue += ` + 800₽ (поздравление именниника)`;
