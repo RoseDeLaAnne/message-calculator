@@ -372,7 +372,12 @@ export function CalculatorForm() {
         </form>
       </Form>
       <Dialog open={isOpen}>
-        <DialogContent className="">
+        <DialogContent
+          onEscapeKeyDown={() => setIsOpen(false)}
+          onCloseAutoFocus={() => setIsOpen(false)}
+          onPointerDownOutside={() => setIsOpen(false)}
+          onInteractOutside={() => setIsOpen(false)}
+        >
           <DialogHeader>
             <DialogTitle>Скомпилированный текст</DialogTitle>
             <DialogDescription>
