@@ -113,6 +113,13 @@ export function CalculatorForm() {
           0.1
         }₽ (скидка 10%)`;
       }
+      // @ts-ignore
+      if (!values.additional_players_450 && !values.additional_players_500) {
+        newValue += ` - ${
+          // @ts-ignore
+          parseInt(values.quest_cost) * 0.1
+        }₽ (скидка 10%)`;
+      }
     }
     // @ts-ignore
     if (values.second_actor) {
@@ -160,8 +167,8 @@ export function CalculatorForm() {
       newValue += ` + 800₽ (поздравление именниника)`;
     }
 
-    newValue += ` = ${sum}₽ - полная сумма`;
-    newValue += `<br />${sum}₽ - 500₽ (предоплата) = ${
+    newValue += ` = ${sum}₽ - общая стоимость`;
+    newValue += `<br /><br />${sum}₽ - 500₽ (предоплата) = ${
       sum - 500
     }₽ - оплата на месте`;
 
